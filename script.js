@@ -26,31 +26,27 @@ document.getElementById('BtnDonate').addEventListener('click', function(){
 
     sideNav = document.getElementById("SideNav");
 
+    var header = document.createElement("h3");
+
     if (typeof donation === "object") {
-        var headerNull = document.createElement("h3"),
+        headerTextNull = document.createTextNode("Are you sure you don't want to reconsider donating?");
 
-            headerTextNull = document.createTextNode("Are you sure you don't want to reconsider donating?");
-
-        headerNull.appendChild(headerTextNull);
-        sideNav.appendChild(headerNull);
+        header.appendChild(headerTextNull);
+        sideNav.appendChild(header);
 
     } else if (donation < 100) {
-        var headerUnderHundred = document.createElement("h3"),
-
         headerTextUnderHundred = document.createTextNode("Thank you for your donation of $" + donation + "!");
 
-        headerUnderHundred.appendChild(headerTextUnderHundred);
-        sideNav.appendChild(headerUnderHundred);
+        header.appendChild(headerTextUnderHundred);
+        sideNav.appendChild(header);
 
     } else if (donation >= 100) {
-        var headerOverHundred = document.createElement("h3"),
-
         headerTextOverHundred = document.createTextNode("Thank you for your very generous donation!");
 
-        headerOverHundred.appendChild(headerTextOverHundred);
-        sideNav.appendChild(headerOverHundred);
+        header.appendChild(headerTextOverHundred);
+        sideNav.appendChild(header);
 
-        headerOverHundred.setAttribute("style", "color: red");
+        header.setAttribute("style", "color: red");
 
         var articleElements = document.getElementsByTagName("article");
 
