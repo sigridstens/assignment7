@@ -22,6 +22,43 @@ var churchillSpeech = {
 
 document.getElementById('BtnDonate').addEventListener('click', function(){
   //Code in here executes when the user clicks the "Donate" button.
+    var donation = window.prompt("How much would you like to donate?"),
+
+    sideNav = document.getElementById("SideNav");
+
+    if (typeof donation === "object") {
+        var headerNull = document.createElement("h3"),
+
+            headerTextNull = document.createTextNode("Are you sure you don't want to reconsider donating?");
+
+        headerNull.appendChild(headerTextNull);
+        sideNav.appendChild(headerNull);
+
+    } else if (donation < 100) {
+        var headerUnderHundred = document.createElement("h3"),
+
+        headerTextUnderHundred = document.createTextNode("Thank you for your donation of $" + donation + "!");
+
+        headerUnderHundred.appendChild(headerTextUnderHundred);
+        sideNav.appendChild(headerUnderHundred);
+
+    } else if (donation >= 100) {
+        var headerOverHundred = document.createElement("h3"),
+
+        headerTextOverHundred = document.createTextNode("Thank you for your very generous donation!");
+
+        headerOverHundred.appendChild(headerTextOverHundred);
+        sideNav.appendChild(headerOverHundred);
+
+        headerOverHundred.setAttribute("style", "color: red");
+
+        var articleElements = document.getElementsByTagName("article");
+
+        for (var i = 0; i < articleElements.length; i += 1) {
+
+            articleElements[i].classList.add("generous-donation");
+        }
+    }
 });
 
 document.getElementById('BtnChurchill').addEventListener('click', function(){
