@@ -18,33 +18,33 @@ var churchillSpeech = {
       'authorAge': '42'
     },
     speechesArray = [churchillSpeech, ghandiSpeech, demosthenesSpeech],
-    donatePrompt;
+    sideNav = document.getElementById("SideNav"),
+    header = document.createElement("h3");
+
+sideNav.appendChild(header);
+
 
 document.getElementById('BtnDonate').addEventListener('click', function(){
   //Code in here executes when the user clicks the "Donate" button.
-    var donation = window.prompt("How much would you like to donate?"),
-
-    sideNav = document.getElementById("SideNav");
-
-    var header = document.createElement("h3");
+    var donation = window.prompt("How much would you like to donate?");
 
     if (typeof donation === "object") {
-        headerTextNull = document.createTextNode("Are you sure you don't want to reconsider donating?");
+        header.innerHTML = '';
+        var headerTextNull = document.createTextNode("Are you sure you don't want to reconsider donating?");
 
         header.appendChild(headerTextNull);
-        sideNav.appendChild(header);
 
     } else if (donation < 100) {
-        headerTextUnderHundred = document.createTextNode("Thank you for your donation of $" + donation + "!");
+        header.innerHTML = '';
+        var headerTextUnderHundred = document.createTextNode("Thank you for your donation of $" + donation + "!");
 
         header.appendChild(headerTextUnderHundred);
-        sideNav.appendChild(header);
 
     } else if (donation >= 100) {
-        headerTextOverHundred = document.createTextNode("Thank you for your very generous donation!");
+        header.innerHTML = '';
+        var headerTextOverHundred = document.createTextNode("Thank you for your very generous donation!");
 
         header.appendChild(headerTextOverHundred);
-        sideNav.appendChild(header);
 
         header.setAttribute("style", "color: red");
 
